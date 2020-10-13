@@ -1,6 +1,7 @@
 package net.gongmingqm10.sipsample.activity;
 
 import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.sip.SipAudioCall;
@@ -16,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import net.gongmingqm10.sipsample.R;
@@ -38,6 +38,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public static final String STATE_CONNECTED_FAILURE = "Register failed, try to refresh";
     public static final String STATE_CONNECTING = "Connecting...";
     public static final String STATE_CALLING = "Calling...";
+    Context mContext;
+
     private SipAudioCall.Listener audioCallListener = new SipAudioCall.Listener() {
         @Override
         public void onCallEstablished(SipAudioCall call) {
@@ -77,6 +79,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        mContext = getApplicationContext();
         initSip();
         initComp();
     }
