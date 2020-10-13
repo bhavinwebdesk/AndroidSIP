@@ -1,7 +1,6 @@
 package net.gongmingqm10.sipsample.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -9,14 +8,14 @@ import net.gongmingqm10.sipsample.R;
 import net.gongmingqm10.sipsample.SipApplication;
 import net.gongmingqm10.sipsample.data.Account;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class ProfileActivity extends BaseActivity {
 
-    @InjectView(R.id.userName)
+     @BindView(R.id.userName)
     TextView userName;
-    @InjectView(R.id.domain)
+     @BindView(R.id.domain)
     TextView domain;
 
     @Override
@@ -24,7 +23,7 @@ public class ProfileActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         getActionBar().setDisplayHomeAsUpEnabled(true);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         Account account = SipApplication.getInstance().getAccount();
         userName.setText("Username：" + account.getUsername());
         domain.setText("Domain：" + account.getDomain());

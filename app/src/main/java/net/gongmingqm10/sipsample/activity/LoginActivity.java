@@ -15,25 +15,25 @@ import android.widget.Toast;
 import net.gongmingqm10.sipsample.R;
 import net.gongmingqm10.sipsample.SipApplication;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 public class LoginActivity extends BaseActivity {
 
-    @InjectView(R.id.userName)
+    @BindView(R.id.userName)
     EditText userNameEdit;
-    @InjectView(R.id.password)
+     @BindView(R.id.password)
     EditText passwordEdit;
-    @InjectView(R.id.domain)
+     @BindView(R.id.domain)
     EditText domainEdit;
-    @InjectView(R.id.loginBtn)
+     @BindView(R.id.loginBtn)
     Button loginBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         if (SipApplication.getInstance().getAccount() != null) {
             startMainActivity();
         }

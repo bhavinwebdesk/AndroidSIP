@@ -26,8 +26,8 @@ import net.gongmingqm10.sipsample.receiver.IncomingCallReceiver;
 
 import java.text.ParseException;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
@@ -63,11 +63,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public SipProfile sipProfile;
     public SipAudioCall call;
     public IncomingCallReceiver callReceiver;
-    @InjectView(R.id.callBtn)
+     @BindView(R.id.callBtn)
     Button callBtn;
-    @InjectView(R.id.callNumber)
+     @BindView(R.id.callNumber)
     EditText callNumber;
-    @InjectView(R.id.callEnd)
+     @BindView(R.id.callEnd)
     Button callEndBtn;
 
     private Account account;
@@ -76,7 +76,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ButterKnife.inject(this);
+        ButterKnife.bind(this);
         initSip();
         initComp();
     }
